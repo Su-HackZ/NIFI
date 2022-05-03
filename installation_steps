@@ -1,0 +1,53 @@
+Step 1: $ sudo apt update -y && sudo apt upgrade -y
+
+the above command updates your EC2 instance.
+
+
+Step 2: $ sudo apt install openjdk-8-jre-headless -y
+the above command installs openjdk version 8 in your EC2 instance.
+
+Step 3: $ update-alternatives --config java
+
+this will update the version of the java configuration set in the EC2 instance.
+Lastly, add the environment variables "JAVA_HOME,PATH" to the file "/etc/profile"
+
+use the commands mentioned below
+
+$ sudo vi /etc/profile
+
+--------
+
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre"
+
+export PATH=JAVA_HOME/bin:$PATH
+
+--------
+
+$ source /etc/profile
+
+
+Step 4: Let's download and extract our nifi setup mentioned step 2.
+
+$ wget https://archive.apache.org/dist/nifi/1.1.1/nifi-1.1.1-bin.tar.gz
+
+$ tar -xvf nifi-1.1.1-bin.tar.gz
+
+$ cd nifi-1.1.1
+
+Step 5: For performing operation on nifi use the command mentioned below:
+
+$ sudo bin/nifi.sh run #  Launches the application to run in the foreground
+
+$ sudo bin/nifi.sh start #  Launches the application to run the background
+
+$ sudo bin/nifi.sh status # Check the status
+
+$ tail logs/nifi-app.log # Checking the logs
+
+
+
+Step 6:To Access our nifi GUI, paste the below url in web browser.Must allow the 8080 on SG 
+
+http://127.0.0.1:8080/nifi
+
+
