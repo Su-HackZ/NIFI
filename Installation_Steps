@@ -34,6 +34,7 @@ $ tar -xvf nifi-1.1.1-bin.tar.gz
 
 $ cd nifi-1.1.1
 
+
 Step 5: For performing operation on nifi use the command mentioned below:
 
 $ sudo bin/nifi.sh run #  Launches the application to run in the foreground
